@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_home">Domov</string>
+    <string name="nav_search">Hľadať</string>
+    <string name="nav_library">Knižnica</string>
+
+    <string name="greeting_morning">Dobré ráno</string>
+    <string name="greeting_afternoon">Dobré popoludnie</string>
+    <string name="greeting_evening">Dobrý večer</string>
+    <string name="greeting_night">Dobrú noc</string>
+
+    <string name="smart_favorites">Obľúbené</string>
+    <string name="smart_recently_added">Naposledy pridané</string>
+    <string name="smart_most_played">Najčastejšie hrané</string>
+    <string name="smart_forgotten">Zabudnuté poklady</string>
+    <string name="smart_recently_played">Naposledy hrané</string>
+    <string name="smart_playlists">Inteligentné playlisty</string>
+    <string name="section_your_playlists">Tvoje playlisty</string>
+    <string name="section_tools">Nástroje</string>
+
+    <string name="tool_visualizer">Vizualizér</string>
+    <string name="tool_car_mode">Režim do auta</string>
+    <string name="tool_equalizer">Ekvalizér</string>
+    <string name="tool_stats">Štatistiky</string>
+    <string name="tool_sleep_timer">Časovač spánku</string>
+
+    <string name="empty_library_title">Tvoja knižnica je prázdna</string>
+    <string name="empty_library_text">Pridaj hudbu skenovaním zariadenia, výberom priečinkov alebo súborov.</string>
+    <string name="action_scan_device">Skenovať zariadenie</string>
+    <string name="action_add_folder">Pridať priečinok</string>
+    <string name="action_pick_files">Vybrať súbory</string>
+    <string name="action_grant_access">Povoliť prístup</string>
+    <string name="permission_text">Advanced Player potrebuje prístup k audio a video súborom, aby mohol vytvoriť tvoju knižnicu.</string>
+    <string name="scanning">Skenujem knižnicu…</string>
+    <string name="scan_done">Nájdených skladieb: %1$d</string>
+    <string name="library_sources">Zdroje</string>
+
+    <string name="tab_songs">Skladby</string>
+    <string name="tab_artists">Interpreti</string>
+    <string name="tab_albums">Albumy</string>
+    <string name="tab_playlists">Playlisty</string>
+    <string name="tab_videos">Videá</string>
+    <string name="tab_folders">Priečinky</string>
+
+    <string name="sort">Zoradiť</string>
+    <string name="sort_title">Názov</string>
+    <string name="sort_artist">Interpret</string>
+    <string name="sort_date_added">Dátum pridania</string>
+    <string name="sort_duration">Dĺžka</string>
+    <string name="sort_most_played">Najčastejšie hrané</string>
+
+    <string name="play">Prehrať</string>
+    <string name="pause">Pozastaviť</string>
+    <string name="shuffle">Náhodne</string>
+    <string name="shuffle_play">Náhodné prehrávanie</string>
+    <string name="next">Ďalšia</string>
+    <string name="previous">Predchádzajúca</string>
+    <string name="repeat_off">Opakovanie vypnuté</string>
+    <string name="repeat_all">Opakovať všetko</string>
+    <string name="repeat_one">Opakovať jednu</string>
+    <string name="play_next">Prehrať ako ďalšiu</string>
+    <string name="add_to_queue">Pridať do frontu</string>
+    <string name="add_to_playlist">Pridať do playlistu</string>
+    <string name="edit_info">Upraviť informácie</string>
+    <string name="go_to_album">Prejsť na album</string>
+    <string name="go_to_artist">Prejsť na interpreta</string>
+    <string name="remove_from_playlist">Odobrať z playlistu</string>
+    <string name="add_favorite">Pridať do obľúbených</string>
+    <string name="remove_favorite">Odobrať z obľúbených</string>
+    <string name="unknown_artist">Neznámy interpret</string>
+    <string name="unknown_album">Neznámy album</string>
+
+    <string name="new_playlist">Nový playlist</string>
+    <string name="playlist_name">Názov playlistu</string>
+    <string name="create">Vytvoriť</string>
+    <string name="cancel">Zrušiť</string>
+    <string name="save">Uložiť</string>
+    <string name="delete">Vymazať</string>
+    <string name="rename">Premenovať</string>
+    <string name="change_image">Zmeniť obrázok</string>
+    <string name="remove_image">Odstrániť obrázok</string>
+    <string name="delete_playlist_confirm">Vymazať playlist „%1$s“?</string>
+    <string name="added_to_playlist">Pridané do %1$s</string>
+
+    <string name="search_hint">Skladby, interpreti, albumy</string>
+    <string name="no_results">Žiadne výsledky</string>
+
+    <string name="now_playing">Práve hrá</string>
+    <string name="nothing_playing">Nič nehrá</string>
+    <string name="queue">Front</string>
+    <string name="clear_queue">Vyčistiť front</string>
+    <string name="queue_shuffle_hint">Na preusporiadanie vypni náhodné prehrávanie</string>
+    <string name="lyrics">Text</string>
+    <string name="no_lyrics">Text sa nenašiel</string>
+    <string name="attach_lyrics">Pripojiť súbor .lrc</string>
+    <string name="remove_lyrics">Odstrániť súbor s textom</string>
+
+    <string name="speed_pitch">Rýchlosť a tónina</string>
+    <string name="speed">Rýchlosť</string>
+    <string name="pitch">Tónina</string>
+    <string name="link_speed_pitch">Prepojiť rýchlosť a tóninu</string>
+    <string name="preset_normal">Normálne</string>
+    <string name="preset_nightcore">Nightcore</string>
+    <string name="preset_slowed">Spomalené + reverb</string>
+    <string name="preset_vaporwave">Vaporwave</string>
+    <string name="reset">Obnoviť</string>
+
+    <string name="sleep_minutes">%1$d min</string>
+    <string name="sleep_end_of_track">Koniec skladby</string>
+    <string name="sleep_off">Vypnúť časovač</string>
+    <string name="sleep_active">Zastaví o %1$s</string>
+
+    <string name="ab_loop">Slučka A-B</string>
+    <string name="ab_set_a">Nastaviť bod A</string>
+    <string name="ab_set_b">Nastaviť bod B</string>
+    <string name="ab_clear">Zrušiť slučku</string>
+    <string name="bookmarks">Záložky</string>
+    <string name="add_bookmark">Pridať záložku tu</string>
+    <string name="no_bookmarks">Zatiaľ žiadne záložky</string>
+
+    <string name="more">Viac</string>
+    <string name="close">Zavrieť</string>
+    <string name="back">Späť</string>
+    <string name="audio_only">Iba zvuk</string>
+    <string name="fullscreen">Celá obrazovka</string>
+    <string name="visualizer_hint">Potiahni pre zmenu štýlu</string>
+    <string name="error_playback">Tento súbor nie je možné prehrať</string>
+
+    <string name="eq_enable">Zapnúť ekvalizér</string>
+    <string name="eq_presets">Predvoľby</string>
+    <string name="eq_preset_flat">Plochý</string>
+    <string name="eq_preset_rock">Rock</string>
+    <string name="eq_preset_pop">Pop</string>
+    <string name="eq_preset_jazz">Jazz</string>
+    <string name="eq_preset_classical">Klasika</string>
+    <string name="eq_preset_bass">Basy</string>
+    <string name="eq_preset_vocal">Vokály</string>
+    <string name="eq_preset_electronic">Elektronika</string>
+    <string name="eq_preset_custom">Vlastné</string>
+    <string name="effects">Efekty</string>
+    <string name="bass_boost">Zosilnenie basov</string>
+    <string name="virtualizer">Virtualizér</string>
+    <string name="loudness">Hlasitosť navyše</string>
+    <string name="reverb">Dozvuk</string>
+
+    <string name="settings">Nastavenia</string>
+    <string name="settings_appearance">Vzhľad</string>
+    <string name="theme">Motív</string>
+    <string name="theme_system">Podľa systému</string>
+    <string name="theme_dark">Tmavý</string>
+    <string name="theme_light">Svetlý</string>
+    <string name="accent_color">Farba zvýraznenia</string>
+    <string name="custom_color">Vlastná farba</string>
+    <string name="album_colors">Farby z obalu albumu</string>
+    <string name="album_colors_desc">Zafarbí prehrávač podľa obalu</string>
+    <string name="deck_style">Štýl prehrávača</string>
+    <string name="deck_cover">Obal</string>
+    <string name="deck_circle">Kruhový vizualizér</string>
+    <string name="deck_cassette">Kazeta</string>
+    <string name="deck_vinyl">Vinyl</string>
+    <string name="crt_effect">Retro CRT efekt</string>
+    <string name="crt_effect_desc">Riadkovanie a zrno na prehrávači</string>
+    <string name="default_visualizer">Predvolený vizualizér</string>
+    <string name="vis_bars">Stĺpce</string>
+    <string name="vis_circle">Kruh</string>
+    <string name="vis_wave">Vlna</string>
+    <string name="vis_mirror">Zrkadlo</string>
+    <string name="vis_particles">Častice</string>
+    <string name="vis_vu">VU meter</string>
+    <string name="language">Jazyk</string>
+
+    <string name="scan_device_setting">Skenovať celé zariadenie</string>
+    <string name="scan_device_desc">Nájde všetku hudbu a videá v telefóne</string>
+    <string name="include_videos">Zahrnúť videá</string>
+    <string name="min_duration">Ignorovať súbory kratšie ako %1$d s</string>
+    <string name="folders">Hudobné priečinky</string>
+    <string name="no_folders">Žiadne pridané priečinky</string>
+    <string name="excluded_folders">Vylúčené priečinky</string>
+    <string name="exclude_folder">Vylúčiť priečinok</string>
+    <string name="rescan">Znova prehľadať knižnicu</string>
+
+    <string name="settings_playback">Prehrávanie</string>
+    <string name="crossfade">Prelínanie</string>
+    <string name="crossfade_off">Vypnuté (bez medzier)</string>
+    <string name="seconds_value">%1$d s</string>
+    <string name="remember_position">Pamätať pozíciu pri dlhých skladbách</string>
+    <string name="remember_position_desc">Pre súbory dlhšie ako 20 minút</string>
+    <string name="pause_on_disconnect">Pozastaviť pri odpojení slúchadiel</string>
+    <string name="resume_on_connect">Pokračovať pri pripojení slúchadiel</string>
+    <string name="settings_gestures">Gestá</string>
+    <string name="swipe_gestures">Potiahnutím po obale zmeniť skladbu</string>
+    <string name="shake_to_skip">Zatrasením preskočiť</string>
+    <string name="reset_stats">Vynulovať štatistiky</string>
+    <string name="reset_stats_confirm">Vymazať celú históriu počúvania?</string>
+    <string name="settings_about">O aplikácii</string>
+    <string name="about_text">Verzia %1$s · Bez reklám · Bez sledovania</string>
+
+    <string name="stats_total_time">Čas počúvania</string>
+    <string name="stats_total_plays">Prehratia</string>
+    <string name="stats_unique">Rôznych skladieb</string>
+    <string name="stats_top_tracks">Najhranejšie skladby</string>
+    <string name="stats_top_artists">Najobľúbenejší interpreti</string>
+    <string name="stats_your_year">Tvoj rok %1$d</string>
+    <string name="stats_empty">Pusti si hudbu a uvidíš štatistiky</string>
+    <string name="wrapped_minutes">Čas tvojho počúvania</string>
+    <string name="wrapped_minutes_unit">minút</string>
+    <string name="wrapped_top_song">Tvoja skladba roka</string>
+    <string name="wrapped_top_artist">Tvoj interpret roka</string>
+    <string name="wrapped_songs">Rôznych prehraných skladieb</string>
+    <string name="hours_minutes">%1$d h %2$d min</string>
+
+    <string name="car_exit">Ukončiť režim do auta</string>
+    <string name="field_album">Album</string>
+    <string name="field_genre">Žáner</string>
+    <string name="field_year">Rok</string>
+    <string name="widget_desc">Ovládanie prehrávania z plochy</string>
+
+    <string name="stats_daily">Denné počúvanie</string>
+    <string name="stats_last_days">Posledných %1$d dní</string>
+    <string name="stats_avg_day">Priemer za deň</string>
+    <string name="stats_period">Rozsah denného grafu</string>
+    <string name="days_value">%1$d dní</string>
+    <string name="stats_no_listening">Bez počúvania</string>
+    <string name="wrapped_total_plays">Spolu prehratí</string>
+    <string name="minutes_short">%1$d min</string>
+
+    <plurals name="songs_count">
+        <item quantity="one">%d skladba</item>
+        <item quantity="few">%d skladby</item>
+        <item quantity="many">%d skladby</item>
+        <item quantity="other">%d skladieb</item>
+    </plurals>
+    <plurals name="plays_count">
+        <item quantity="one">%d prehratie</item>
+        <item quantity="few">%d prehratia</item>
+        <item quantity="many">%d prehratia</item>
+        <item quantity="other">%d prehratí</item>
+    </plurals>
+</resources>
