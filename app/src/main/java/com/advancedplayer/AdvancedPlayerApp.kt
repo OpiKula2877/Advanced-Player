@@ -10,9 +10,13 @@ import com.advancedplayer.data.LibraryRepository
 import com.advancedplayer.data.SettingsRepository
 import com.advancedplayer.data.db.AppDatabase
 import com.advancedplayer.playback.PlayerConnection
+import com.advancedplayer.util.LauncherIcon
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 
 class AppContainer(app: Application) {
     val appScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
@@ -30,6 +34,13 @@ class AdvancedPlayerApp : Application(), ImageLoaderFactory {
     override fun onCreate() {
         super.onCreate()
         container = AppContainer(this)
+        // Re-point the launcher icon whenever the theme or accent changes, and on every start.
+        container.appScope.launch {
+            container.settings.settings
+                .map { it.themeMode to it.accent }
+                .distinctUntilChanged()
+                .collect { (mode, accent) -> LauncherIcon.apply(this@AdvancedPlayerApp, mode, accent) }
+        }
     }
 
     override fun newImageLoader(): ImageLoader =

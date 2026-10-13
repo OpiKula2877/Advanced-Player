@@ -42,4 +42,4 @@ The APK is written to `app/build/outputs/apk/release/`.
 
 ## Status
 
-Version 1.2.0. It is an early release, so expect rough edges. Bug reports and ideas are welcome in the Issues tab.
+Version 1.2.1. It is an early release, so expect rough edges. Bug reports and ideas are welcome in the Issues tab.
