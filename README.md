@@ -31,6 +31,12 @@ Requires JDK 17 and the Android SDK (or Android Studio).
 ./gradlew assembleRelease
 ```
 
+The APK is written to `app/build/outputs/apk/release/`.
+
+## Status
+
+Version 1.2.1. It is an early release, so expect rough edges. Bug reports and ideas are welcome in the Issues tab.
+
 ## Screenshots
 
 <p align="center">
@@ -39,9 +45,3 @@ Requires JDK 17 and the Android SDK (or Android Studio).
   <img src="docs/screenshots/visualizer-particles.png" width="180" alt="Particle visualizer" />
   <img src="docs/screenshots/stats.png" width="180" alt="Statistics" />
 </p>
-
-The APK is written to `app/build/outputs/apk/release/`.
-
-## Status
-
-Version 1.2.1. It is an early release, so expect rough edges. Bug reports and ideas are welcome in the Issues tab.
