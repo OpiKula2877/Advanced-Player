@@ -20,6 +20,17 @@ internal static class Uninstaller
         string here = Path.GetDirectoryName(Environment.ProcessPath) ?? Installer.DefaultDirectory;
         string target = Path.GetFullPath(options.TargetDirectory ?? here);
 
+        // Only a folder that holds the program is removed, so a copy of this file in any other folder removes nothing.
+        if (!File.Exists(Path.Combine(target, Installer.AppExe)))
+        {
+            if (!options.Silent)
+            {
+                MessageBox.Show("This folder does not contain Advanced Player, so nothing was removed.", Installer.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            return 1;
+        }
+
         if (!options.Silent)
         {
             DialogResult answer = MessageBox.Show(

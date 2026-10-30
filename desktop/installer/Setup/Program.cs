@@ -10,7 +10,9 @@ internal static class Program
         InstallerOptions options = InstallerOptions.Parse(args);
         try
         {
-            if (options.Uninstall || options.UninstallFinish)
+            // The copy of this file named Uninstall.exe removes the program, also when it is started with no arguments.
+            bool runsAsUninstaller = string.Equals(Path.GetFileName(Environment.ProcessPath), Installer.UninstallExe, StringComparison.OrdinalIgnoreCase);
+            if (options.Uninstall || options.UninstallFinish || runsAsUninstaller)
             {
                 return Uninstaller.Run(options);
             }
