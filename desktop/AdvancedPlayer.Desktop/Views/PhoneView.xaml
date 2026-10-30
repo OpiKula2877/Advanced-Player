@@ -1,0 +1,26 @@
+<UserControl x:Class="AdvancedPlayer.Desktop.Views.PhoneView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AdvancedPlayer.Desktop"
+             Background="{StaticResource BgBrush}">
+    <DockPanel Margin="22,18,22,12">
+        <TextBlock DockPanel.Dock="Top" x:Name="TitleText" FontSize="22" FontWeight="SemiBold" Margin="0,0,0,10"/>
+        <TextBlock DockPanel.Dock="Top" x:Name="IntroText" Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" Margin="0,0,0,14"/>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,12">
+            <Button x:Name="FindButton" Click="Find_Click"/>
+            <Button x:Name="ConnectButton" Click="Connect_Click"/>
+            <Button x:Name="SyncButton" Click="Sync_Click"/>
+        </StackPanel>
+        <TextBlock DockPanel.Dock="Bottom" x:Name="StatusText" Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" Margin="0,10,0,0"/>
+        <ListBox x:Name="DeviceList">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="8,6">
+                        <TextBlock Text="{Binding Name}" FontWeight="SemiBold"/>
+                        <TextBlock Text="{Binding Address}" FontSize="12" Foreground="{StaticResource MutedBrush}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</UserControl>

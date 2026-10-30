@@ -236,4 +236,9 @@
         <item quantity="many">%d přehrání</item>
         <item quantity="other">%d přehrání</item>
     </plurals>
+    <string name="pc_link_section">PC</string>
+    <string name="pc_link">Sdílet knihovnu s PC přes Bluetooth</string>
+    <string name="pc_link_desc">Zapne Bluetooth server, aby Advanced Player v PC mohl číst tuhle knihovnu. Ve výchozím stavu vypnuto.</string>
+    <string name="pc_link_channel">PC propojení</string>
+    <string name="pc_link_notification">Knihovna se sdílí s PC přes Bluetooth</string>
 </resources>

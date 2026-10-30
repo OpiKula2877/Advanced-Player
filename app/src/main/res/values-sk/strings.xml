@@ -236,4 +236,9 @@
         <item quantity="many">%d prehratia</item>
         <item quantity="other">%d prehratí</item>
     </plurals>
+    <string name="pc_link_section">PC</string>
+    <string name="pc_link">Zdieľať knižnicu s PC cez Bluetooth</string>
+    <string name="pc_link_desc">Zapne Bluetooth server, aby Advanced Player v PC mohol čítať túto knižnicu. Predvolene vypnuté.</string>
+    <string name="pc_link_channel">PC prepojenie</string>
+    <string name="pc_link_notification">Knižnica sa zdieľa s PC cez Bluetooth</string>
 </resources>

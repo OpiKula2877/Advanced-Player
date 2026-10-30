@@ -1,0 +1,110 @@
+﻿<Window x:Class="AdvancedPlayer.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:AdvancedPlayer.Desktop"
+        Title="{Binding [app_title], Source={x:Static local:Loc.Instance}}"
+        Width="1200" Height="760" MinWidth="960" MinHeight="600"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition x:Name="NowColumn" Width="0"/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Background="{StaticResource BgBrush}">
+                <TextBlock DockPanel.Dock="Top" Text="Advanced Player" FontSize="16" FontWeight="SemiBold" Margin="18,16,16,14"/>
+                <TextBlock x:Name="StatusText" DockPanel.Dock="Bottom" Foreground="{StaticResource MutedBrush}" FontSize="11"
+                           TextWrapping="Wrap" Margin="18,8,14,12" MinHeight="16"/>
+                <ListBox x:Name="NavList" Background="Transparent" Margin="8,0" SelectionChanged="NavList_SelectionChanged">
+                    <ListBoxItem Tag="songs" Padding="12,9" Content="{Binding [nav_songs], Source={x:Static local:Loc.Instance}}"/>
+                    <ListBoxItem Tag="albums" Padding="12,9" Content="{Binding [nav_albums], Source={x:Static local:Loc.Instance}}"/>
+                    <ListBoxItem Tag="artists" Padding="12,9" Content="{Binding [nav_artists], Source={x:Static local:Loc.Instance}}"/>
+                    <ListBoxItem Tag="playlists" Padding="12,9" Content="{Binding [nav_playlists], Source={x:Static local:Loc.Instance}}"/>
+                    <ListBoxItem Tag="favorites" Padding="12,9" Content="{Binding [nav_favorites], Source={x:Static local:Loc.Instance}}"/>
+                    <ListBoxItem Tag="queue" Padding="12,9" Content="{Binding [nav_queue], Source={x:Static local:Loc.Instance}}"/>
+                    <ListBoxItem Tag="spotify" Padding="12,9" Content="{Binding [nav_spotify], Source={x:Static local:Loc.Instance}}"/>
+                    <ListBoxItem Tag="recent" Padding="12,9" Content="{Binding [nav_recent], Source={x:Static local:Loc.Instance}}"/>
+                    <ListBoxItem Tag="phone" Padding="12,9" Content="{Binding [nav_phone], Source={x:Static local:Loc.Instance}}"/>
+                    <ListBoxItem Tag="stats" Padding="12,9" Content="{Binding [nav_stats], Source={x:Static local:Loc.Instance}}"/>
+                    <ListBoxItem Tag="settings" Padding="12,9" Content="{Binding [nav_settings], Source={x:Static local:Loc.Instance}}"/>
+                </ListBox>
+            </DockPanel>
+
+            <Border Grid.Column="1" x:Name="ContentHost" Background="{StaticResource BgBrush}"/>
+
+            <local:NowPlayingPanel Grid.Column="2" x:Name="NowPanel" Visibility="Collapsed"/>
+        </Grid>
+
+        <Border Grid.Row="1" Background="{StaticResource SurfaceBrush}" Padding="16,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Border Width="50" Height="50" CornerRadius="6" Background="{StaticResource Surface2Brush}" ClipToBounds="True">
+                        <Grid>
+                            <TextBlock Text="♪" FontSize="18" Foreground="{StaticResource MutedBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Image x:Name="BarArt" Stretch="UniformToFill"/>
+                        </Grid>
+                    </Border>
+                    <StackPanel Margin="12,0,0,0" Width="220" VerticalAlignment="Center">
+                        <TextBlock x:Name="BarTitle" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+                        <TextBlock x:Name="BarArtist" Foreground="{StaticResource MutedBrush}" FontSize="12" TextTrimming="CharacterEllipsis"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="ShuffleButton" FontFamily="Segoe MDL2 Assets" Content="&#xE8B1;" Click="Shuffle_Click"
+                                ToolTip="{Binding [shuffle], Source={x:Static local:Loc.Instance}}" Width="38"/>
+                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE892;" Click="Prev_Click" Width="38"
+                                ToolTip="{Binding [previous], Source={x:Static local:Loc.Instance}}"/>
+                        <Button x:Name="PlayButton" FontFamily="Segoe MDL2 Assets" Content="&#xE768;" FontSize="16" Click="PlayPause_Click" Width="50"
+                                ToolTip="{Binding [play], Source={x:Static local:Loc.Instance}}"/>
+                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE893;" Click="Next_Click" Width="38"
+                                ToolTip="{Binding [next], Source={x:Static local:Loc.Instance}}"/>
+                        <Button x:Name="RepeatButton" FontFamily="Segoe MDL2 Assets" Content="&#xE8EE;" Click="Repeat_Click" Width="38"/>
+                    </StackPanel>
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="48"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="48"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="PosText" Text="0:00" Foreground="{StaticResource MutedBrush}" FontSize="11" VerticalAlignment="Center"/>
+                        <Slider x:Name="Progress" Grid.Column="1" Minimum="0" Maximum="1" Value="0" IsMoveToPointEnabled="True"
+                                VerticalAlignment="Center"
+                                PreviewMouseLeftButtonDown="Progress_PreviewMouseLeftButtonDown"
+                                PreviewMouseLeftButtonUp="Progress_PreviewMouseLeftButtonUp"/>
+                        <TextBlock x:Name="LenText" Grid.Column="2" Text="0:00" Foreground="{StaticResource MutedBrush}" FontSize="11"
+                                   VerticalAlignment="Center" TextAlignment="Right"/>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE767;" VerticalAlignment="Center" Foreground="{StaticResource MutedBrush}"
+                               ToolTip="{Binding [volume], Source={x:Static local:Loc.Instance}}"/>
+                    <Slider x:Name="VolumeSlider" Width="80" Minimum="0" Maximum="1" Margin="6,0,10,0" VerticalAlignment="Center"
+                            ValueChanged="Volume_Changed"/>
+                    <ComboBox x:Name="OutputBox" Width="130" DisplayMemberPath="Name" VerticalAlignment="Center"
+                              SelectionChanged="Output_Changed"
+                              ToolTip="{Binding [output], Source={x:Static local:Loc.Instance}}"/>
+                    <Button Content="EQ" Margin="8,0,0,0" Click="Eq_Click" ToolTip="{Binding [equalizer], Source={x:Static local:Loc.Instance}}"/>
+                    <Button x:Name="SleepButton" Content="Zzz" Click="Sleep_Click" ToolTip="{Binding [sleep_timer], Source={x:Static local:Loc.Instance}}"/>
+                    <Button x:Name="PanelButton" Content="♫" FontSize="14" Click="Panel_Click" ToolTip="{Binding [now_playing], Source={x:Static local:Loc.Instance}}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

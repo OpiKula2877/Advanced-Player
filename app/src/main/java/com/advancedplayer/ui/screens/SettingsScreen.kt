@@ -43,6 +43,14 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.content.ContextCompat
+import com.advancedplayer.pclink.PcLinkService
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -89,6 +97,10 @@ fun SettingsScreen(vm: MainViewModel, onBack: () -> Unit) {
     var excludeDialog by remember { mutableStateOf(false) }
     var resetStats by remember { mutableStateOf(false) }
     fun set(block: suspend () -> Unit) = vm.launch { block() }
+    val context = LocalContext.current
+    val pcLinkPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        if (granted) set { vm.settingsRepo.setPcLink(true); PcLinkService.start(context) }
+    }
 
     ScreenScaffold(stringResource(R.string.settings), onBack) { padding ->
         Column(Modifier.padding(padding).verticalScroll(rememberScroll()).padding(bottom = 40.dp)) {
@@ -249,6 +261,17 @@ fun SettingsScreen(vm: MainViewModel, onBack: () -> Unit) {
             SwitchRow(stringResource(R.string.shake_to_skip), null, s.shakeToSkip) { set { vm.settingsRepo.setShakeToSkip(it) } }
 
             // Stats & about
+            Section(stringResource(R.string.pc_link_section))
+            SwitchRow(stringResource(R.string.pc_link), stringResource(R.string.pc_link_desc), s.pcLink) { on ->
+                when {
+                    !on -> set { vm.settingsRepo.setPcLink(false); PcLinkService.stop(context) }
+                    Build.VERSION.SDK_INT < Build.VERSION_CODES.S ||
+                        ContextCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_CONNECT) ==
+                        PackageManager.PERMISSION_GRANTED ->
+                        set { vm.settingsRepo.setPcLink(true); PcLinkService.start(context) }
+                    else -> pcLinkPermission.launch(Manifest.permission.BLUETOOTH_CONNECT)
+                }
+            }
             Section(stringResource(R.string.tool_stats))
             Label(stringResource(R.string.stats_period))
             ChoiceChips(listOf(7, 14, 30, 90).map { it to R.string.days_value }, s.statsDays, labelArg = true) {

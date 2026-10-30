@@ -10,3 +10,7 @@ keystore.properties
 captures/
 release/
 .claude/
+bin/
+obj/
+.vs/
+*.user

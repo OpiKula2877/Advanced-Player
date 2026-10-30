@@ -17,7 +17,9 @@ import androidx.core.os.LocaleListCompat
 import com.advancedplayer.data.Permissions
 import com.advancedplayer.ui.AppRoot
 import com.advancedplayer.ui.MainViewModel
+import com.advancedplayer.pclink.PcLinkService
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private val vm: MainViewModel by viewModels()
@@ -36,6 +38,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_USER_PORTRAIT
         enableEdgeToEdge()
+        // Bring the PC link back after a restart, as long as the user left it on.
+        container.appScope.launch {
+            if (container.settings.current().pcLink) PcLinkService.start(this@MainActivity)
+        }
         container.player.connect()
 
         hasPermission = Permissions.hasMediaAccess(this)

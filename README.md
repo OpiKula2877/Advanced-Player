@@ -20,6 +20,13 @@ The app does not even ask for internet access.
 - Dark, light or system theme, accent colours, vinyl and cassette player styles
 - Listening statistics with a daily chart, home screen widget and car mode
 - English (default), Czech and Slovak
+- Optional PC link: share the library with a Windows version over Bluetooth (off by default)
+
+## Windows version
+
+The Windows version lives in [desktop/](desktop/). It plays the music on your PC, reads the library from
+this phone over Bluetooth when the PC link is on, and can search Spotify. See [desktop/README.md](desktop/README.md)
+for what works and what does not.
 
 ## Download on your phone
 
@@ -42,4 +49,4 @@ The APK is written to `app/build/outputs/apk/release/`.
 
 ## Status
 
-Version 1.2.1. It is an early release, so expect rough edges. Bug reports and ideas are welcome in the Issues tab.
+Version 1.3.0. It is an early release, so expect rough edges. Bug reports and ideas are welcome in the Issues tab.
