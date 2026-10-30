@@ -3,13 +3,6 @@
 A free, offline music and video player for Android. No ads, no tracking, no account.
 The app does not even ask for internet access.
 
-<p align="center">
-  <img src="docs/screenshots/player-vinyl.png" width="180" alt="Vinyl player" />
-  <img src="docs/screenshots/player-cassette.png" width="180" alt="Cassette player" />
-  <img src="docs/screenshots/visualizer-particles.png" width="180" alt="Particle visualizer" />
-  <img src="docs/screenshots/stats.png" width="180" alt="Statistics" />
-</p>
-
 ## Features
 
 - MP3, AAC, FLAC, OGG, WAV and video (MP4, MKV, WebM), playing in the background with lock-screen controls
@@ -50,3 +43,12 @@ The APK is written to `app/build/outputs/apk/release/`.
 ## Status
 
 Version 1.3.0. It is an early release, so expect rough edges. Bug reports and ideas are welcome in the Issues tab.
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/player-vinyl.png" width="180" alt="Vinyl player" />
+  <img src="docs/screenshots/player-cassette.png" width="180" alt="Cassette player" />
+  <img src="docs/screenshots/visualizer-particles.png" width="180" alt="Particle visualizer" />
+  <img src="docs/screenshots/stats.png" width="180" alt="Statistics" />
+</p>
