@@ -34,6 +34,26 @@ dotnet run --project desktop/AdvancedPlayer.Desktop
 dotnet test desktop/AdvancedPlayer.Desktop.Tests
 ```
 
+## Installer (setup.exe)
+
+To build one `setup.exe` for other PCs, run this from the repository root:
+
+```bash
+powershell -ExecutionPolicy Bypass -File desktop\installer\build-installer.ps1
+```
+
+The result is `desktop\installer\dist\setup.exe`. The installer:
+
+- installs for the current user into `%LOCALAPPDATA%\Programs\Advanced Player`, so no administrator rights are needed;
+- adds a Start menu entry and, if you choose, a desktop shortcut;
+- registers the program under Settings → Apps, so it can be uninstalled there;
+- includes the .NET runtime, so .NET does not have to be installed on the PC.
+
+Silent install: `setup.exe /S /D=C:\path\to\folder`. The options `/NODESKTOP`, `/NOSTARTMENU` and `/NOREGISTRY` skip the matching steps.
+Uninstall: run `Uninstall.exe` in the install folder, or use Settings → Apps. The library and settings in `%LOCALAPPDATA%\AdvancedPlayer` are kept.
+
+The installer is not code-signed, so Windows SmartScreen may show a warning the first time it runs. Signing needs a code-signing certificate.
+
 ## Library
 
 Open **Settings → Music folders**, add a folder and press **Scan library**. Your Music folder is added on

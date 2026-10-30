@@ -36,14 +36,14 @@ public sealed class CoverVisual : FrameworkElement
 
     private ImageSource? _art;
 
-    public CoverStyle Style { get; private set; } = CoverStyle.Vinyl;
+    public CoverStyle Kind { get; private set; } = CoverStyle.Vinyl;
 
     /// <summary>Rotation in degrees. The panel advances it while music plays.</summary>
     public double Angle { get; private set; }
 
     public void SetStyle(CoverStyle style)
     {
-        Style = style;
+        Kind = style;
         InvalidateVisual();
     }
 
@@ -66,7 +66,7 @@ public sealed class CoverVisual : FrameworkElement
         if (width <= 0 || height <= 0) return;
 
         var center = new Point(width / 2, height / 2);
-        switch (Style)
+        switch (Kind)
         {
             case CoverStyle.Vinyl:
                 DrawVinyl(dc, center, Math.Min(width, height) / 2 - 4);

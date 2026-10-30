@@ -149,7 +149,7 @@ public partial class MainWindow : Window
         if (!ReferenceEquals(track, _shownTrack))
         {
             _shownTrack = track;
-            BarArt.Source = track == null ? null : new ArtConverter().Convert(track.ArtPath, typeof(ImageSource), null!, System.Globalization.CultureInfo.InvariantCulture) as ImageSource;
+            BarArt.Source = ArtConverter.Load(track?.ArtPath);
             NowPanel.SetTrack(track);
         }
 
