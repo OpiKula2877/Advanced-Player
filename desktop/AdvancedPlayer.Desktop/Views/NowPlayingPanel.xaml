@@ -1,0 +1,46 @@
+<UserControl x:Class="AdvancedPlayer.Desktop.NowPlayingPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AdvancedPlayer.Desktop"
+             xmlns:v="clr-namespace:AdvancedPlayer.Desktop.Views"
+             Background="{StaticResource SurfaceBrush}">
+    <UserControl.Resources>
+        <DataTemplate x:Key="LyricRow">
+            <TextBlock x:Name="Line" Text="{Binding Text}" TextWrapping="Wrap" FontSize="14"
+                       Foreground="{StaticResource MutedBrush}" Margin="4,5"/>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                    <Setter TargetName="Line" Property="Foreground" Value="{StaticResource AccentBrush}"/>
+                    <Setter TargetName="Line" Property="FontWeight" Value="SemiBold"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </UserControl.Resources>
+    <DockPanel Margin="16">
+        <TextBlock DockPanel.Dock="Top" x:Name="HeaderText" Foreground="{StaticResource MutedBrush}" FontSize="12"/>
+        <Grid DockPanel.Dock="Top" Margin="0,8,0,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="StyleLabel" VerticalAlignment="Center" Foreground="{StaticResource MutedBrush}"/>
+            <ComboBox x:Name="StyleBox" Grid.Column="2" DisplayMemberPath="Name" SelectionChanged="StyleBox_Changed"/>
+        </Grid>
+        <v:CoverVisual x:Name="Cover" DockPanel.Dock="Top" Height="220" Margin="0,0,0,10"/>
+        <TextBlock DockPanel.Dock="Top" x:Name="TitleText" FontSize="17" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+        <TextBlock DockPanel.Dock="Top" x:Name="ArtistText" Foreground="{StaticResource MutedBrush}" TextTrimming="CharacterEllipsis" Margin="0,2,0,10"/>
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="VisualLabel" VerticalAlignment="Center" Foreground="{StaticResource MutedBrush}"/>
+            <ComboBox x:Name="VisualBox" Grid.Column="2" DisplayMemberPath="Name" SelectionChanged="VisualBox_Changed"/>
+        </Grid>
+        <v:SpectrumVisual x:Name="Spectrum" DockPanel.Dock="Bottom" Height="96" Margin="0,6,0,0"/>
+        <TextBlock DockPanel.Dock="Top" x:Name="LyricsHeader" FontWeight="SemiBold" Margin="0,0,0,6"/>
+        <ListBox x:Name="LyricsList" ItemTemplate="{StaticResource LyricRow}" Background="Transparent"/>
+    </DockPanel>
+</UserControl>

@@ -53,6 +53,7 @@ data class AppSettings(
     val songSort: SongSort = SongSort.TITLE,
     val statsDays: Int = 30,
     val onboardingDone: Boolean = false,
+    val pcLink: Boolean = false,
 ) {
     companion object {
         const val DEFAULT_ACCENT = 0xFF1DB954
@@ -93,6 +94,7 @@ class SettingsRepository(private val context: Context) {
         val sort = stringPreferencesKey("sort")
         val statsDays = intPreferencesKey("stats_days")
         val onboarding = booleanPreferencesKey("onboarding")
+        val pcLink = booleanPreferencesKey("pc_link")
     }
 
     val settings: Flow<AppSettings> = context.dataStore.data.map { it.toSettings() }
@@ -135,6 +137,7 @@ class SettingsRepository(private val context: Context) {
             songSort = this[K.sort].toEnum(d.songSort),
             statsDays = this[K.statsDays] ?: d.statsDays,
             onboardingDone = this[K.onboarding] ?: d.onboardingDone,
+            pcLink = this[K.pcLink] ?: d.pcLink,
         )
     }
 
@@ -177,4 +180,5 @@ class SettingsRepository(private val context: Context) {
     suspend fun setSongSort(v: SongSort) = edit { it[K.sort] = v.name }
     suspend fun setStatsDays(v: Int) = edit { it[K.statsDays] = v }
     suspend fun setOnboardingDone() = edit { it[K.onboarding] = true }
+    suspend fun setPcLink(v: Boolean) = edit { it[K.pcLink] = v }
 }

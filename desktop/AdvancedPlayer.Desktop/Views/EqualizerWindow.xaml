@@ -1,0 +1,29 @@
+<Window x:Class="AdvancedPlayer.Desktop.Views.EqualizerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:AdvancedPlayer.Desktop"
+        Title="{Binding [equalizer], Source={x:Static local:Loc.Instance}}"
+        Width="660" Height="460" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <DockPanel Margin="20">
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,12">
+            <CheckBox x:Name="EnabledBox" VerticalAlignment="Center" Click="Enabled_Click"
+                      Content="{Binding [eq_enabled], Source={x:Static local:Loc.Instance}}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{Binding [eq_preset], Source={x:Static local:Loc.Instance}}"/>
+                <ComboBox x:Name="PresetBox" Width="200" DisplayMemberPath="Name" SelectionChanged="Preset_Changed"/>
+            </StackPanel>
+        </Grid>
+        <Grid DockPanel.Dock="Bottom" Margin="0,14,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,10,0" Text="{Binding [bass_boost], Source={x:Static local:Loc.Instance}}"/>
+                <Slider x:Name="BassSlider" Width="260" Minimum="0" Maximum="100" VerticalAlignment="Center" ValueChanged="Bass_Changed"/>
+                <TextBlock x:Name="BassText" VerticalAlignment="Center" Margin="10,0,0,0" Width="50"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="{Binding [reset], Source={x:Static local:Loc.Instance}}" Click="Reset_Click"/>
+                <Button Content="{Binding [ok], Source={x:Static local:Loc.Instance}}" IsDefault="True" Click="Close_Click" Margin="0"/>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="BandGrid" Margin="0,8,0,8"/>
+    </DockPanel>
+</Window>

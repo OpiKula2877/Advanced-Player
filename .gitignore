@@ -10,3 +10,8 @@ keystore.properties
 captures/
 release/
 .claude/
+bin/
+obj/
+.vs/
+*.user
+desktop/installer/dist/

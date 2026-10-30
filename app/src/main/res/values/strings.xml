@@ -237,4 +237,9 @@
         <item quantity="one">%d play</item>
         <item quantity="other">%d plays</item>
     </plurals>
+    <string name="pc_link_section">PC</string>
+    <string name="pc_link">Share library with PC over Bluetooth</string>
+    <string name="pc_link_desc">Opens a Bluetooth server so Advanced Player on your PC can read this library. Off by default.</string>
+    <string name="pc_link_channel">PC link</string>
+    <string name="pc_link_notification">Sharing the library with your PC over Bluetooth</string>
 </resources>

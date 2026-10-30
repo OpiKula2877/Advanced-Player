@@ -1,0 +1,32 @@
+<UserControl x:Class="AdvancedPlayer.Desktop.Views.TrackListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AdvancedPlayer.Desktop"
+             Background="{StaticResource BgBrush}">
+    <DockPanel Margin="22,18,22,12">
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BackButton" Content="{Binding [back], Source={x:Static local:Loc.Instance}}" Click="Back_Click"
+                        Visibility="Collapsed" Margin="0,0,16,0" VerticalAlignment="Center"/>
+                <StackPanel>
+                    <TextBlock x:Name="TitleText" FontSize="22" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+                    <TextBlock x:Name="CountText" Foreground="{StaticResource MutedBrush}" FontSize="12"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Content="{Binding [play_all], Source={x:Static local:Loc.Instance}}" Click="PlayAll_Click"/>
+                <Button x:Name="AddToQueueButton" Click="AddToQueue_Click"/>
+                <Button Content="{Binding [shuffle_all], Source={x:Static local:Loc.Instance}}" Click="ShuffleAll_Click"/>
+                <TextBox x:Name="SearchBox" Width="220" Margin="8,0,0,0" TextChanged="Search_TextChanged"
+                         ToolTip="{Binding [search], Source={x:Static local:Loc.Instance}}"/>
+            </StackPanel>
+        </Grid>
+        <ListBox x:Name="List" ItemTemplate="{StaticResource TrackRow}" SelectionMode="Extended"
+                 MouseDoubleClick="List_MouseDoubleClick"
+                 PreviewMouseRightButtonDown="List_PreviewMouseRightButtonDown"/>
+    </DockPanel>
+</UserControl>
