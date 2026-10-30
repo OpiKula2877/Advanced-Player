@@ -74,6 +74,20 @@ public sealed class AppSettings
         set => _db.SetSetting("eq_preset", value ?? "custom");
     }
 
+    /// <summary>When on, the app switches the Windows default output to the chosen device while it runs.</summary>
+    public bool SystemOutputEnabled
+    {
+        get => _db.GetSetting("system_output_on") == "1";
+        set => _db.SetSetting("system_output_on", value ? "1" : "0");
+    }
+
+    /// <summary>The device id that the Windows default output is switched to.</summary>
+    public string? SystemOutputDeviceId
+    {
+        get => string.IsNullOrEmpty(_db.GetSetting("system_output_device")) ? null : _db.GetSetting("system_output_device");
+        set => _db.SetSetting("system_output_device", value ?? "");
+    }
+
     /// <summary>Artwork style of the Now playing panel: Vinyl, Cassette or Cover.</summary>
     public string CoverStyleName
     {

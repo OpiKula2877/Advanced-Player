@@ -16,6 +16,13 @@
             <TextBlock x:Name="LanguageTitle" FontSize="15" FontWeight="SemiBold" Margin="0,26,0,6"/>
             <ComboBox x:Name="LanguageBox" Width="220" HorizontalAlignment="Left" DisplayMemberPath="Name" SelectionChanged="Language_Changed"/>
             <TextBlock x:Name="RestartHint" Foreground="{StaticResource MutedBrush}" Margin="0,6,0,0"/>
+            <TextBlock x:Name="AudioTitle" FontSize="15" FontWeight="SemiBold" Margin="0,26,0,6"/>
+            <TextBlock x:Name="AudioHint" Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" MaxWidth="640" Margin="0,0,0,8"/>
+            <Button x:Name="AudioSettingsButton" HorizontalAlignment="Left" Click="AudioSettings_Click"/>
+            <CheckBox x:Name="SystemOutputBox" Margin="0,18,0,6" Click="SystemOutput_Click"/>
+            <ComboBox x:Name="SystemOutputDeviceBox" Width="360" HorizontalAlignment="Left" DisplayMemberPath="Name" SelectionChanged="SystemOutputDevice_Changed"/>
+            <TextBlock x:Name="SystemOutputHint" Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" MaxWidth="640" Margin="0,6,0,0"/>
+            <TextBlock x:Name="SystemOutputStatus" Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" MaxWidth="640" Margin="0,4,0,0"/>
             <TextBlock x:Name="AboutText" Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" Margin="0,30,0,0"/>
         </StackPanel>
     </ScrollViewer>
